@@ -31,12 +31,19 @@ alias rors='_rails-command server'
 alias rorsd='_rails-command server --debugger'
 alias rorx='_rails-command destroy'
 
+alias rorgs='_rails-command generate scaffold'
+alias rorgc='_rails-command generate controller'
+alias rorgm='_rails-command generate model'
+alias rorgmi='_rails-command generate migration'
+
 #
 # Functions
 #
 
 function _rails-command {
-  if [[ -e "script/server" ]]; then
+  if [[ -e "bin/rails" ]]; then
+    ruby bin/rails "$@"
+  elif [[ -e "script/server" ]]; then
     ruby script/"$@"
   else
     ruby script/rails "$@"

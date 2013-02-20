@@ -5,6 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -12,3 +14,37 @@ fi
 
 # Customize to your needs...
 
+PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH="/usr/local/heroku/bin:$PATH"
+
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
+alias reload='source ~/.zshrc'
+alias zshconfig="mate ~/.zshrc"
+alias prezto="mate ~/.zprezto/"
+alias ...="cd ../../"
+-() {
+	cd -
+}
+
+alias redis_start='redis-server /usr/local/etc/redis.conf'
+alias rmDS='find . -name .DS_Store -print0 | xargs -0 rm -rf'
+
+alias rb='bundle'
+alias be='bundle exec'
+alias p='pwd'
+alias s='subl'
+alias m='mate'
+alias ip='curl -s http://checkip.dyndns.org | sed "s/[a-zA-Z/<> :]//g"'
+
+# lol
+alias icanhaz='mkdir'
+alias rtfm='man'
+alias donotwant='rm'
+alias dowant='cp'
+alias gtfo='mv'
+alias nomnom='killall'
